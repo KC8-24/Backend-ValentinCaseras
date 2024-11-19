@@ -1,0 +1,35 @@
+[
+    {
+        "id": 376,
+        "title": "Remera",
+        "description": "Prenda de calidad",
+        "code": "randomCodeHere",
+        "price": 1000,
+        "stock": 4,
+        "category": "Ropa",
+        "thumbnail": "not available yet",
+        "status": true
+    },
+    {
+        "id": 736,
+        "title": "Pantalon",
+        "description": "Prenda de calidad",
+        "code": "randomCodeHere",
+        "price": 900,
+        "stock": 4,
+        "category": "Ropa",
+        "thumbnail": "not available yet",
+        "status": true
+    },
+    {
+        "id": 637,
+        "title": "Short",
+        "description": "Prenda de calidad",
+        "code": "randomCodeHere",
+        "price": 800,
+        "stock": 4,
+        "category": "Ropa",
+        "thumbnail": "not available yet",
+        "status": true
+    }
+]
