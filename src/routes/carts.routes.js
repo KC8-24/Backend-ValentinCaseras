@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
         res.status(200).json({success: true, data: carts})
     } catch (error) {
         console.log(error)
-        res.status(500).json({success: false, error: "Error al obtener los carritos"})
+        res.status(500).json({success: false, error: "ERROR! al obtener los carritos"})
     }
 })
 
@@ -20,13 +20,13 @@ router.get("/:cid", async (req, res) => {
         const cart = await cartManager.getById(cartId)
 
         if (!cart) {
-            return res.status(404).json({success: false, error: "Carrito no encontrado"})
+            return res.status(404).json({success: false, error: "Carrito NO encontrado"})
         } else {
             res.status(200).json({success: true, data: cart.products})
         }
     } catch (error) {
         console.log(error)
-        res.status(500).json({success: false, error: "Error al obtener el carrito"})
+        res.status(500).json({success: false, error: "ERROR! al obtener el carrito"})
     }
 })
 
@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
         res.status(201).json({success: true, data: newCart})
     } catch (error) {
         console.log(error)
-        res.status(500).json({success: false, error: "Error al crear el carrito"})
+        res.status(500).json({success: false, error: "ERROR! al crear el carrito"})
     }
 })
 
@@ -53,7 +53,7 @@ router.post("/:cid/product/:pid", async (req, res) => {
         }
     } catch (error) {
         console.log(error)
-        res.status(500).json({success: false, error: "Error al agregar productos al carrito"})
+        res.status(500).json({success: false, error: "ERROR! al agregar productos al carrito"})
     }
 })
 
