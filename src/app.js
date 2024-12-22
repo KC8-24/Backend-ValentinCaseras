@@ -1,17 +1,14 @@
 import express from "express"
 import handlebars  from "express-handlebars"
-import ProductManager from "./services/ProductManager.js"
+import mongoose from "mongoose"
 import productsRoutes from './routes/products.routes.js'
 import cartsRoutes from './routes/carts.routes.js'
 import viewsRoutes from "./routes/views.routes.js"
 import __dirname from "./utils.js"
-import { Server } from "socket.io"
 
 const app = express()
 const PORT = 8080
 const httpServer = app.listen(PORT, () => console.log(`Escuchando en el puerto: ${PORT}`))
-
-const io = new Server(httpServer)
 
 app.use(express.static(__dirname + "/public"));
 
@@ -30,20 +27,16 @@ app.use("/api/products", productsRoutes)
 app.use("/api/carts", cartsRoutes)
 app.use("/", viewsRoutes)
 
-const productManager = new ProductManager()
+const DBPATH = ""
 
-io.on("connection", async socket => {
-    const products = await productManager.getAll()
-    io.emit("allProducts", products)
+const connectToMongoDB = async () => {
+    try {
+        await mongoose.connect(DBPATH)
+        console.log("Conectado a MongoDB")
+    } catch (error) {
+        console.log(error)
+        process.exit()
+    }
+}
 
-    socket.on("newProduct", data => {
-        console.log("Recibido:" + JSON.stringify(data, null, 2))
-        products.push(data)
-        io.emit("allProducts", products)
-    })
-
-    socket.on("deletedProduct", data => {
-        productManager.delete(data)
-        io.emit("allProducts", products)
-    })
-})
+connectToMongoDB()
