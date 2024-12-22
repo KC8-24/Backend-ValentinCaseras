@@ -4,10 +4,16 @@
     "description": "Proyecto curso Backend 1 Coderhouse",
     "main": "app.js",
     "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
     "author": "Valentin Caseras",
+    "license": "ISC",
     "dependencies": {
-    "express": "^4.21.1",
-    "express-handlebars": "^8.0.1",
-    "socket.io": "^4.8.1"
-  }
+        "express": "^4.21.1",
+        "express-handlebars": "^8.0.1",
+        "mongoose": "^8.9.2",
+        "mongoose-paginate-v2": "^1.8.5",
+        "socket.io": "^4.8.1"
+    }
 }
